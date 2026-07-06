@@ -1,0 +1,38 @@
+{
+  "expo": {
+    "name": "Transcriber",
+    "slug": "transcriber-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "backgroundColor": "#0E1116"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yourcompany.transcriber"
+    },
+    "android": {
+      "package": "com.yourcompany.transcriber",
+      "permissions": [
+        "RECORD_AUDIO",
+        "android.permission.RECORD_AUDIO"
+      ]
+    },
+    "plugins": [
+      "expo-dev-client",
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone.",
+          "speechRecognitionPermission": "Allow $(PRODUCT_NAME) to use speech recognition to transcribe your recordings."
+        }
+      ],
+      "expo-sqlite",
+      "expo-asset"
+    ]
+  }
+}
