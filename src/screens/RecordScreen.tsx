@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Ionicons } from '@expo/vector-icons';
 import {
   View,
   Text,
@@ -63,7 +64,7 @@ export default function RecordScreen({ navigation }: any) {
         <Text style={styles.transcriptText}>
           {fullTranscript || (
             <Text style={styles.placeholder}>
-              Tap the mic and start speaking — your words will appear here live.
+              Tap the mic and start speaking.
             </Text>
           )}
         </Text>
@@ -78,8 +79,14 @@ export default function RecordScreen({ navigation }: any) {
           onPress={handleToggle}
           style={[styles.micButton, isListening && styles.micButtonActive]}
         >
+          <Ionicons
+            name={isListening ? 'stop' : 'mic'}
+            size={20}
+            color="white"
+            style={{ marginRight: 8 }}
+          />
           <Text style={styles.micButtonText}>
-            {isListening ? '■ Stop' : '● Record'}
+            {isListening ? 'Stop' : 'Record'}
           </Text>
         </Pressable>
 
@@ -140,6 +147,8 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     paddingHorizontal: 32,
     borderRadius: 32,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   micButtonActive: {
     backgroundColor: '#D6392F',
